@@ -1,5 +1,5 @@
 
-
+import json
 import numpy as np
 
 import pandas as pd
@@ -9,6 +9,9 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
+
+json_file = open("configs.json","r").read()
+CF = json.loads(json_file)
 
 
 def get_data_stats(df):
@@ -28,11 +31,11 @@ def get_data_stats(df):
 
 def load_data():
 
-    df_train = pd.read_csv('datasets/train.csv', encoding='ISO-8859-1', sep=";")
+    df_train = pd.read_csv(CF['TRAIN'], encoding='ISO-8859-1', sep=";")
 
     get_data_stats(df_train)
 
-    df_test = pd.read_csv('datasets/test.csv', encoding='ISO-8859-1', sep=";")
+    df_test = pd.read_csv(CF['TEST'], encoding='ISO-8859-1', sep=";")
 
     x = df_train[['3D ROAS','7D ROAS']]
     y = df_train['30D ROAS']

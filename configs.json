@@ -1,5 +1,4 @@
 {
-    "DATA_DIR": "datasets",
-    "TRAIN": "train.csv",
-    "TEST": "test.csv"
+    "TRAIN": "datasets/train.csv",
+    "TEST": "datasets/test.csv"
 }
